@@ -45,50 +45,41 @@ class Hand {
 
 
 class Deck {
-    constructor(ranks, suits, card) {
-        this.ranks = ranks;
-        this.suits = suits;
-        this.card = card;
+    constructor() {
+        this.ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+        this.suits = ["spades", "diamonds", "clubs", "hearts"];
+        this.cards = [];
     }
 
 
     // populate deck with initial array of cards
     // We will have to use Math.random()
     generateCards() {
-
-        let suit1 = ["spades", "diamonds", "clubs", "hearts"];
-
-        let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-
-        let completeCards = [];
-
-
-        for (let i = 0; i < suit1.length; i++) {
-            for (let j = 0; j < values.length; j++) {
-                // console.log(suit1[i]);
-                // console.log(values[j]);
-                completeCards.push({ suit: suit1[i], values: values[j] });
-            }
-        } console.log(completeCards);
-    }
-
-
-    shuffleCards() {
-        for (let i = completeCards.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * i);
-            let temp = completeCards[i];
-            completeCards[i] = completeCards[j];
-            completeCards[j] = temp;
-        }
-        // display 5 results
-        for (let i = 0; i < 5; i++) {
-            console.log(`${completeCards[i].Value} of ${completeCards[i].Suit}`)
-        }
-
+        for (let i = 0; i < this.suits.length; i++) {
+            for (let j = 0; j < this.ranks.length; j++) {
+               this.cards.push(new Card(this.ranks[j], this.suits[i]));
+        }  
     }
 }
 
-const deck1 = new Deck ("10","diamond", "red");
-console.log(deck1.shuffleCards());
+
+    shuffleCards(){
+        for (let i = deck.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * i);
+            let temp = deck[i];
+           deck[i] = deck[j];
+           deck[j] = temp;
+        }
+        // display 5 results
+        for (let i = 0; i < 5; i++){
+            console.log(`${deck[i].Value} of ${deck[i].Suit}`);
+        }
+    }
+  
+}
+
+const deck1 = new Deck();
+deck1.generateCards();
+console.log(deck1.cards);
 
 
