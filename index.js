@@ -57,29 +57,39 @@ class Deck {
     generateCards() {
         for (let i = 0; i < this.suits.length; i++) {
             for (let j = 0; j < this.ranks.length; j++) {
-               this.cards.push(new Card(this.ranks[j], this.suits[i]));
-        }  
-    }
-}
-
-
-    shuffleCards(){
-        for (let i = deck.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * i);
-            let temp = deck[i];
-           deck[i] = deck[j];
-           deck[j] = temp;
-        }
-        // display 5 results
-        for (let i = 0; i < 5; i++){
-            console.log(`${deck[i].Value} of ${deck[i].Suit}`);
+                this.cards.push(new Card(this.ranks[j], this.suits[i]));
+            }
         }
     }
-  
+
+    shuffleCards() {
+        for (let i = this.cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
+        }
+    }
 }
+// shuffleCards(){
+//     for (let i = this.cards.length - 1; i > 0; i--) {
+//         let j = Math.floor(Math.random() * i);
+//         let temp = this.cards[i];
+//        this.cards[i] = this.cards[j];
+//        this.cards[j] = temp;
+//     } console.log(temp);
+//     // display 5 results
+//     for (let i = 0; i < 5; i++){
+//         console.log(`${this.cards[i]} of ${this.cards[i]}`);
+//     }
+// }
+
+
 
 const deck1 = new Deck();
 deck1.generateCards();
-console.log(deck1.cards);
+// console.log(deck1.cards);
+
+deck1.shuffleCards();
+console.log(deck1.cards)
+// console.log(deck1.cards);
 
 
