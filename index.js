@@ -68,28 +68,29 @@ class Deck {
             [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
         }
     }
+
+    draw(){
+       let newArray = (this.cards.splice(-1));
+        return console.log(newArray);
+    }
+    deal(numHands, cardsPerHand){
+     //cards per hand will return array
+     
+     //numHands = players
+    }
 }
-// shuffleCards(){
-//     for (let i = this.cards.length - 1; i > 0; i--) {
-//         let j = Math.floor(Math.random() * i);
-//         let temp = this.cards[i];
-//        this.cards[i] = this.cards[j];
-//        this.cards[j] = temp;
-//     } console.log(temp);
-//     // display 5 results
-//     for (let i = 0; i < 5; i++){
-//         console.log(`${this.cards[i]} of ${this.cards[i]}`);
-//     }
-// }
+
 
 
 
 const deck1 = new Deck();
 deck1.generateCards();
-// console.log(deck1.cards);
-
 deck1.shuffleCards();
+deck1.draw();
+deck1.draw();
+deck1.draw();
+deck1.draw();
+deck1.draw();
 console.log(deck1.cards)
 // console.log(deck1.cards);
-
 
